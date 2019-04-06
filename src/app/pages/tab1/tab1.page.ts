@@ -38,15 +38,15 @@ export class Tab1Page {
       {
         text: 'Crear',
         handler: ( data ) => {
-          console.log( data );
+          
           if ( data.titulo.length === 0 ){
             return;
           }
 
           const listaId = this.pendientesService.crearLista( data.titulo );
 
-          //Crear lista
-        this.router.navigateByUrl(`/tabs/tab1/agregar/${ listaId }`);
+          // Crear lista
+          this.router.navigateByUrl(`/tabs/tab1/agregar/${ listaId }`);
 
 
         }
@@ -56,4 +56,14 @@ export class Tab1Page {
 
     alert.present();
   }
+
+  listaSeleccionada( lista: Lista ){
+    
+    console.log(lista);
+    // Navegar a la lista;
+    this.router.navigateByUrl(`/tabs/tab1/agregar/${ lista.id }`);
+  }
+
+
+
 }

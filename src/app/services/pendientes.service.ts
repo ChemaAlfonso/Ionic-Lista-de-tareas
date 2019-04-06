@@ -28,7 +28,7 @@ export class PendientesService {
 
    }
 
-   crearLista( titulo:string ){
+   crearLista( titulo: string ){
     const nuevaLista = new Lista( titulo );
     this.listas.push( nuevaLista );
     this.setStorage();
