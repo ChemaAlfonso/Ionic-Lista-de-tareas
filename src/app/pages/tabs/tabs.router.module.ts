@@ -26,6 +26,10 @@ const routes: Routes = [
           {
             path: '',
             loadChildren: '../tab2/tab2.module#Tab2PageModule'
+          },
+          {
+            path: 'agregar/:id',
+            loadChildren: '../agregar/agregar.module#AgregarPageModule'
           }
         ]
       },

@@ -16,13 +16,13 @@
   <ion-list>
 
     <ion-item color="dark">
-      <ion-label position="floating" >Nueva Lista</ion-label>
+      <ion-label position="floating" >Nueva Tarea...</ion-label>
       <ion-input (keyup.enter)="agregarItem()" [(ngModel)]="nombreItem" type="text"></ion-input>
     </ion-item>
 
   </ion-list>
 
-  <ion-list>
+  <ion-list #task>
 
     <ion-list-header color="dark" *ngIf="lista.items.length > 0">
       <ion-label position="floating">Tareas por hacer</ion-label>
@@ -34,6 +34,12 @@
     class="animated bounceInLeft fast"
     *ngFor="let item of lista.items; let i = index">
       
+      <ion-item-options side="start">
+        <ion-item-option (click)="editTask( i )" color="primary">
+          <ion-icon slot="icon-only" name="create"></ion-icon>
+        </ion-item-option>
+      </ion-item-options>
+
       <ion-item color="dark">
         <ion-checkbox color="tertiary" 
                       slot="start" 
@@ -43,15 +49,15 @@
       </ion-item>
 
       <ion-item-options side="end">
-          <ion-item-option (click)="delete( i )" color="danger">
-            <ion-icon slot="icon-only" name="close"></ion-icon>
-          </ion-item-option>
-        </ion-item-options>
+        <ion-item-option (click)="delete( i )" color="danger">
+          <ion-icon slot="icon-only" name="close"></ion-icon>
+        </ion-item-option>
+      </ion-item-options>
 
     </ion-item-sliding>
 
 
   
-    </ion-list>
+  </ion-list>
 
 </ion-content>

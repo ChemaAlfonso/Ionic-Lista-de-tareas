@@ -36,8 +36,17 @@ export class PendientesService {
     return nuevaLista.id;
    }
 
-   cargarLista( id: string | number ){
+   borrarLista( lista: Lista ){
+    this.listas = this.listas.filter( listaData => listaData.id !== lista.id );
+    this.setStorage();
+  }
 
+  editLista( lista, data ){
+    lista.titulo = data.titulo;
+    this.setStorage();
+  }
+
+   cargarLista( id: string | number ){
     id = Number(id);
 
     return this.listas.find( listaData => listaData.id === id );

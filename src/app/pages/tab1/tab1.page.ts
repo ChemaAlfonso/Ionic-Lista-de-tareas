@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { PendientesService } from 'src/app/services/pendientes.service';
-import { Lista } from 'src/app/models/Lista.model';
 import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
 
@@ -56,14 +55,6 @@ export class Tab1Page {
 
     alert.present();
   }
-
-  listaSeleccionada( lista: Lista ){
-    
-    console.log(lista);
-    // Navegar a la lista;
-    this.router.navigateByUrl(`/tabs/tab1/agregar/${ lista.id }`);
-  }
-
 
 
 }
